@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="gridListDemoApp">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Email App</title>
+    <link href="resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--
+	<div ng-controller="TestCtrl">
+		<h1>{{ title }}</h1>
+		<input type="text" ng-model="title">
+	</div>
+
+    <main class="main" role="main">
+        <div class="wrapper">
+            <div ng-view></div>
+        </div>
+    </main>-->
+
+    <div ng-controller="gridListDemoCtrl as vm" flex ng-cloak>
+        <md-grid-list
+                md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+                md-row-height-gt-md="1:1" md-row-height="4:3"
+                md-gutter="8px" md-gutter-gt-sm="4px" >
+            <md-grid-tile ng-repeat="tile in vm.tiles"
+                          md-rowspan="{{tile.span.row}}"
+                          md-colspan="{{tile.span.col}}"
+                          md-colspan-sm="1"
+                          md-colspan-xs="1"
+                          ng-class="tile.background" >
+                <md-icon md-svg-icon="{{tile.icon}}"></md-icon>
+                <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+
+	<!-- SCRIPTS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.js"></script>
+
+<!-- MODULES -->
+        <script src="resources/js/app.js"></script>
+
+    <!-- CONTROLLERS -->
+<!--        <script src="resources/js/controllers/TestCtrl.js"></script>-->
+        <script src="resources/js/controllers/Ctrl.js"></script>
+</body>
+</html>
